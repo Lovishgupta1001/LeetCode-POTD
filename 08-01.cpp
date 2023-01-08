@@ -29,6 +29,6 @@ public:
                 ans = max(ans, mp[slope]);
             }
         }
-        return ans + 1; // +1 is for the i=0 because it never counted as when it1==it2 the statement is contniued
+        return ans + 1; // +1 is for the i=0 because it never counted as when it1==it2 the statement is continued
     }
 };

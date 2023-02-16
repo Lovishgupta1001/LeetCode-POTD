@@ -1,18 +1,26 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution
 {
 public:
-    string addBinary(string a, string b)
+    int maxDepth(TreeNode *root)
     {
-        string s = "";
-        int c = 0, i = a.size() - 1, j = b.size() - 1;
-
-        while (i >= 0 || j >= 0 || c == 1)
-        {
-            c += i >= 0 ? a[i--] - '0' : 0;
-            c += j >= 0 ? b[j--] - '0' : 0;
-            s = char(c % 2 + '0') + s;
-            c = c / 2;
-        }
-        return s;
+        // int ans=0;
+        if (!root)
+            return 0;
+        if (!root->left and !root->right)
+            return 1;
+        return max(maxDepth(root->left),
+                   maxDepth(root->right)) +
+               1;
     }
 };
